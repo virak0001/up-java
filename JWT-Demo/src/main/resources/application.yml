@@ -1,0 +1,7 @@
+server:
+  port: 8083
+
+
+
+jwt:
+  secret: GrxO`-pnpsPEVmwO_RK_/+22*|c#wOnon}h1Gm{4M1n5[8U)D>@0QRCFw|!yyY9

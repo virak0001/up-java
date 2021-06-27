@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<title>Employee List</title>
+</head>
+<body>
+<h1 class="text-center">Employee List</h1>
+<a type="button" onclick="window.location.href = 'views/employee/register.jsp'" class="btn btn-primary float-right">Add new Employee</a>
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Department</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <c:forEach var="employee" items="${list}">
+	    <tr>
+	      <th>${employee.getId()}</th>
+	      <td>${employee.name}</td>
+	      <td>${employee.department}</td>
+	      <td>${employee.description}</td>
+	      <td>
+	      <a href = "${pageContext.request.contextPath}/EmployeeController?action=EDIT&id=${employee.id}">Edit</a> 
+						| 
+		  <a href = "${pageContext.request.contextPath}/EmployeeController?action=DELETE&id=${employee.id}">Delete</a> 
+	      </td>
+	    </tr>
+    </c:forEach>
+  </tbody>
+</table>
+</body>
+</html>
